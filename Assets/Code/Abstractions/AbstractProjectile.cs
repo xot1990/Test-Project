@@ -5,10 +5,10 @@ using UnityEngine;
 
 public class AbstractProjectile : MonoBehaviour
 {
-    protected LayerMask layerMaskContactGroupEnemy;
-    protected LayerMask layerMaskContactGroupPlayer;
+    protected private LayerMask layerMaskContactGroupEnemy;
+    protected private LayerMask layerMaskContactGroupPlayer;
     protected private Collider[] _contactCollider;
-    protected Animator animator;
+    protected private Animator animator;
     protected private AudioSource audioSource;
     [SerializeField] protected private int damage;
     [SerializeField] protected private float speed;

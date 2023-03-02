@@ -11,6 +11,7 @@ public class AbstractUnit : MonoBehaviour, TakenDamage
     [SerializeField] protected private int hp;
     [SerializeField] protected private int maxHp;
     [SerializeField] protected private int speed;
+    [SerializeField] protected private float attackSpeed;
     [SerializeField] protected private int damage;
 
     [SerializeField] protected private StateMachine state;
@@ -37,9 +38,19 @@ public class AbstractUnit : MonoBehaviour, TakenDamage
         return damage;
     }
 
+    public int GetHp()
+    {
+        return hp;
+    }
+
     public int GetMaxHp()
     {
         return maxHp;
+    }
+
+    public float GetAttackSpeed()
+    {
+        return attackSpeed;
     }
 
     protected private virtual void onAwake()
@@ -67,7 +78,6 @@ public class AbstractUnit : MonoBehaviour, TakenDamage
         actionAudio.clip = clip;
         actionAudio.Play();
     }
-
     
     
     public virtual void Hit(int value)

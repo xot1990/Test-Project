@@ -4,17 +4,31 @@ using UnityEngine;
 
 public class PlayerControler : AbstractUnit
 {
-    
+    public GameObject projectile;
     private bool dead;
+    private bool isMove;
 
     private void OnEnable()
     {
         dead = false;
+        EventBus.updateDamge += GetUpdateDamage;
+        EventBus.updateHp += GetUpdateHp;
+        EventBus.updateAttackSpeed += GetUpdateAttackSpeed;
+        EventBus.playerStartMove += StartMove;
+    }
+
+    private void OnDisable()
+    {
+        EventBus.updateDamge -= GetUpdateDamage;
+        EventBus.updateHp -= GetUpdateHp;
+        EventBus.updateAttackSpeed -= GetUpdateAttackSpeed;
+        EventBus.playerStartMove -= StartMove;
     }
 
     void Start()
     {        
         ChangeState<PlayerStateIdle>();
+        EventBus.updateUiValue(damage, attackSpeed, hp);
     }
 
     
@@ -33,6 +47,38 @@ public class PlayerControler : AbstractUnit
 
     }
 
-    
+    private void StartMove()
+    {
+        if (isMove)
+        {
+            isMove = false;
+            PlayAnimation("Idle");
+        }
+        else
+        {
+            isMove = true;
+            PlayAnimation("Walk");
+        }
+    }
+
+    private void GetUpdateDamage(int value)
+    {
+        damage += value;
+        EventBus.updateUiValue(damage, attackSpeed, maxHp);
+    }
+
+    private void GetUpdateHp(int value)
+    {
+        hp += value;
+        maxHp += value;
+        EventBus.updateUiValue(damage, attackSpeed, maxHp);
+    }
+
+    private void GetUpdateAttackSpeed(float value)
+    {
+        attackSpeed -= value / 10;
+        attackSpeed = Mathf.Clamp(attackSpeed, 0.3f, 10);
+        EventBus.updateUiValue(damage, attackSpeed, maxHp);
+    }
 
 }

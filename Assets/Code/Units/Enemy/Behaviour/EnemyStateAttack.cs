@@ -28,7 +28,6 @@ public class EnemyStateAttack : EnemyStateMachine
             foreach (var P in contactGroup)
             {
                 EventBus.GetHit(P.gameObject, _controler.GetDamage());
-                P.GetComponent<PlayerControler>().Hit(_controler.GetDamage());
             }
         }
 

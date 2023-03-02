@@ -6,11 +6,7 @@ public class EnemyControler : AbstractUnit
 {
     
     private bool dead;
-
-    private void OnEnable()
-    {
-        dead = false;
-    }
+        
 
     void Start()
     {        
@@ -20,19 +16,26 @@ public class EnemyControler : AbstractUnit
     
     void Update()
     {
-        state.OnUpdateState();
+        if (!_game.isPause)
+        {
+            state.OnUpdateState();
+        }
 
         if (hp <= 0 && !dead)
         {
-            ChangeState<EnemyStateDeath>();
             dead = true;
+            ChangeState<EnemyStateDeath>();
         }
 
     }
 
-
-    private void OnTriggerEnter(Collider other)
+    
+    private void OnTriggerStay(Collider other)
     {
-        ChangeState<EnemyStateRun>();
+        if (!_game.isPause)
+        {
+            ChangeState<EnemyStateRun>();
+        }
+        
     }
 }

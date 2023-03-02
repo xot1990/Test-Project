@@ -1147,6 +1147,7 @@ GameObject:
   - component: {fileID: 9157526475399019543}
   - component: {fileID: 5470354454716466059}
   - component: {fileID: 8573411146342062763}
+  - component: {fileID: 1845499375}
   m_Layer: 7
   m_Name: Enemy
   m_TagString: Untagged
@@ -1190,7 +1191,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 100
   maxHp: 100
-  speed: 5
+  speed: 2
+  attackSpeed: 0
   damage: 20
   state: {fileID: 0}
 --- !u!95 &5744560401565043278
@@ -1319,7 +1321,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.84
+  m_Radius: 0.39
   m_Height: 2.65
   m_Direction: 1
   m_Center: {x: 0, y: 1.48, z: 0}
@@ -1351,8 +1353,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8dba8651cd4da647af415defd78173b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stateSound: {fileID: 0}
-  attackDelay: 1
+  stateSound: {fileID: 8300000, guid: f1541f90079fea84b90567332148fd19, type: 3}
 --- !u!114 &7639593047900875790
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1405,6 +1406,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stateSound: {fileID: 0}
+--- !u!114 &1845499375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4862109611773013854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9549a849a5f72ab44b8470ff3c6f3a78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HpBar: {fileID: 7369878748589061843}
+  hitCount: {fileID: 6814977680732459352, guid: 5a19c47b101c9f444b8bc1134c4147a3, type: 3}
+  matherObjectForHitCount: {fileID: 1675187355780027793}
 --- !u!1 &4964516888586758806
 GameObject:
   m_ObjectHideFlags: 0

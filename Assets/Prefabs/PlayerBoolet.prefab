@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3456989063621459514}
   - component: {fileID: 4605198803394234947}
   - component: {fileID: -6047059437569399736}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: PlayerBoolet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -111,7 +111,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4ee3a96985279e4ba14b37c9fbb2883, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 0
+  damage: 10
   speed: 2
   enterSound: {fileID: 8300000, guid: 73a8e80c0fb0f684480163005c1524c3, type: 3}
   target: {fileID: 0}

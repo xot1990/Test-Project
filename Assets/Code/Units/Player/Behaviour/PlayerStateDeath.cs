@@ -8,20 +8,16 @@ public class PlayerStateDeath : PlayerStateMachine
 
     public override void OnEnterState()
     {
-        
+        _controler.PlayAnimation("DeathAnimation");
     }
 
     public override void OnUpdateState()
     {
-        if (!_game.isPause)
-        {
-            deathTimer -= Time.deltaTime;
+        deathTimer -= Time.deltaTime;
 
-            if (deathTimer < 0)
-            {
-                _controler.gameObject.layer = 7;
-                gameObject.SetActive(false);
-            }
+        if (deathTimer < 0)
+        {
+            EventBus.GetEndGame();
         }
     }
 

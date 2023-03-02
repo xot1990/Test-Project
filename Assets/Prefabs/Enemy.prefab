@@ -1191,6 +1191,7 @@ MonoBehaviour:
   hp: 100
   maxHp: 100
   speed: 5
+  damage: 20
   state: {fileID: 0}
 --- !u!95 &5744560401565043278
 Animator:
@@ -1351,6 +1352,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stateSound: {fileID: 0}
+  attackDelay: 1
 --- !u!114 &7639593047900875790
 MonoBehaviour:
   m_ObjectHideFlags: 0

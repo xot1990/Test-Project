@@ -5,10 +5,10 @@ using UnityEngine;
 
 public static class EventBus 
 {       
-    public static Action<GameObject> hit;
+    public static Action<GameObject,int> hit;
 
-    public static void GetHit(GameObject gameObject)
+    public static void GetHit(GameObject gameObject,int value)
     {
-        hit?.Invoke(gameObject);
+        hit?.Invoke(gameObject,value);
     }
 }

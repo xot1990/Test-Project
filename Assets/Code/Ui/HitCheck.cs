@@ -1,15 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using TMPro;
 using UnityEngine;
 
 public class HitCheck : MonoBehaviour
 {
-    private Image HpBar;
+    [SerializeField] private Image HpBar;
+    [SerializeField] private GameObject hitCount;
+    [SerializeField] private GameObject matherObjectForHitCount;
+    private int Hp;
 
     private void OnEnable()
     {
         EventBus.hit += ChengeAfterHit;
+        Hp = GetComponent<AbstractUnit>().GetMaxHp(); 
     }
 
     private void OnDisable()
@@ -17,21 +22,30 @@ public class HitCheck : MonoBehaviour
         EventBus.hit -= ChengeAfterHit;
     }
 
-    private void ChengeAfterHit(GameObject gameO)
+    private void ChengeAfterHit(GameObject gameO,int value )
     {
         if (gameO == gameObject)
         {
-            HpBar.fillAmount -= 1;
+            float amountValue = (float)value / Hp ;
+            Debug.Log(amountValue);
+            HpBar.fillAmount -= amountValue;
+            GameObject Hit = Instantiate(hitCount, matherObjectForHitCount.transform);
+            Hit.GetComponent<TMP_Text>().text = value.ToString();
         }
     }
 
-    // Start is called before the first frame update
+    private void Awake()
+    {
+        
+    }
+
+
     void Start()
     {
         
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
         

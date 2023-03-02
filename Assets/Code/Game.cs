@@ -22,7 +22,6 @@ public sealed class Game : MonoBehaviourService<Game>
     
     protected override void OnCreateService()
     {
-        ProjectileData.ProjectileList.Initialize();
         layerMaskEnemy = LayerMask.GetMask("Enemy");
         layerMaskGround = LayerMask.GetMask("Ground");
         layerMaskBoolet = LayerMask.GetMask("Boolet");

@@ -37,6 +37,11 @@ public class AbstractUnit : MonoBehaviour, TakenDamage
         return damage;
     }
 
+    public int GetMaxHp()
+    {
+        return maxHp;
+    }
+
     protected private virtual void onAwake()
     {
         _game = Game.Get();
